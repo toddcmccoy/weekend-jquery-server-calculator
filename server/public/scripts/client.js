@@ -3,7 +3,7 @@ $(document).ready(onReady);
 
 function onReady(){
     //get data
-    getQuotes();
+    getCalculations();
     $('#submit').on('click', handleClick);
 }
 
