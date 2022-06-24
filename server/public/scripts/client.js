@@ -19,11 +19,11 @@ function handleClick(){
     $.ajax({
         url: '/calculations',
         method: 'POST',
-        data: newQuote //data here becomes req.body on the server
+        data: calculator //data here becomes req.body on the server
     }).then(function(response){
         console.log(response)
         // trigger a GET
-        getQuotes();
+        getCalculations();
     })
     
 }

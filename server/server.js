@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const inventoryList = require('./modules/calculations.js');
+const calculationsList = require('./modules/calculations.js');
 
 //Make an instance of a server
 const app = express();
@@ -21,7 +21,7 @@ app.get('/calculations', function(req, res) {
 app.post('/calculations', function(req, res) {
     console.log('POST /calculations', req.body);
     // save our new item
-    // calculationsList.push(req.body);
+    calculationsList.push(req.body);
 })
 
 //run the server, on the port we want.
