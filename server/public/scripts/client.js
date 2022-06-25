@@ -4,13 +4,13 @@ $(document).ready(onReady);
 function onReady(){
     //get data
     getCalculations();
-    $('#submit').on('click', handleClick);
+    $('#submit-button').on('click', handleClick);
 }
 
 function handleClick(){
     //collect inputs...
     const calculator = {
-        firstNumber: $('first-number').val(),
+        firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
         operator: $('#operator').val(),
     }
@@ -30,8 +30,7 @@ function handleClick(){
 
 function getCalculations(){
     console.log('start of getCalculations');
-    //we need to get all quotes from the server
-    //AJAX
+    //we need to get the calculations
     $.ajax({
         url: '/calculations',
         method: 'GET'
