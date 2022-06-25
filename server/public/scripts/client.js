@@ -12,7 +12,7 @@ function handleClick(){
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
-        operator: $('#operator').val(),
+        // operator: $('#operator').val(),
     }
     console.log(calculator);
     //ajax request to server
