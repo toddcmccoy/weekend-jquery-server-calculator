@@ -13,7 +13,7 @@ function handleClick(){
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
-        operator: $('#addition-button').val(), $('subtraction-button').val(), $('multiplication-button').val(), $('division-button').val(),
+        operator: $('#addition-button').val()
     }
     console.log(calculator);
     //ajax request to server
