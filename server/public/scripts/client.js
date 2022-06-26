@@ -4,22 +4,49 @@ $(document).ready(onReady);
 function onReady(){
     //get data
     $('#addition-button').on('click', createAddition);
+    $('#subtraction-button').on('click', createSubtraction);
+    $('#multiplication-button').on('click', createMultiplication);
+    $('#division-button').on('click', createDivision);
     $('#submit-button').on('click', handleClick);
     $('#submit-button').on('click', getCalculations);
     getCalculations();
 }
 
+let operator = '';
+
 function createAddition(){
-    let operator = '+';
+    operator='+';
+    console.log(operator);
     return operator
 }
+
+function createSubtraction(){
+    operator='-';
+    console.log(operator);
+    return operator
+}
+
+function createMultiplication(){
+    operator='*';
+    console.log(operator);
+    return operator
+}
+
+function createDivision(){
+    operator='/';
+    console.log(operator);
+    return operator
+    
+}
+
 
 function handleClick(){
     //collect inputs...
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
-        operator: operator
+        operation: operator,
+        result: ''
     }
     console.log(calculator);
     //ajax request to server
@@ -56,6 +83,6 @@ function render(calculationsList){
     $('#history-results').empty();
     //append it to the DOM
     for (let calculation of calculationsList) {
-        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operator} ${calculation.secondNumber}</li>`);
+        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber}</li>`);
     }
 }

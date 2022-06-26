@@ -6,6 +6,15 @@ const calculationsList = require('./modules/calculations.js');
 const app = express();
 const PORT = 5000;
 
+
+// function inMyPocket(calculator){
+//     if (calculator.operator === '+') {
+//         let result = parseInt(calculator.firstNumber) + parseInt(calculator.secondNumber);
+//         console.log('Result is:', result);
+//     } else {
+//         return false
+//     }
+// }
 //Serve Static Files
 app.use(express.static('server/public'));
 
@@ -16,10 +25,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/calculations', function(req, res) {
     console.log('In Calculations');
     res.send(calculationsList);
-    res.send(inMyPocket());
 });
 //putting our new item into the calculation list
 app.post('/calculations', function(req, res) {
+    let num1 = Number(req.body.firstNumber);
+    let num2 = Number(req.body.secondNumber);
+    let kapow = req.body.operation;
+    let answer = req.body.result;
+    if (kapow === '+') {
+        answer = num1 + num2;
+    } else if(kapow ==='-'){
+        answer = num1 - num2;
+    } else if (kapow ==='*'){
+        answer = num1 * num2;
+    } else if (kapow === '/'){
+        answer = num1 / num2;
+    }
+    console.log('The result of addition is:', sum);
     console.log('POST /calculations', req.body);
     // save our new item
     calculationsList.push(req.body);
@@ -30,11 +52,3 @@ app.listen(PORT, function() {
     console.log('SERVER RUNNING ON PORT', PORT)
 });
 
-function inMyPocket(calculator){
-    if (calculator.operator === '+') {
-        let result = parseInt(calculator.firstNumber) + parseInt(calculator.secondNumber);
-        console.log('Result is:', result);
-    } else {
-        return false
-    }
-}
