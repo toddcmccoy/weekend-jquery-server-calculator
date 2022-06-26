@@ -9,10 +9,13 @@ function onReady(){
     $('#division-button').on('click', createDivision);
     $('#submit-button').on('click', handleClick);
     $('#submit-button').on('click', getCalculations);
+    $('#clear-button').on('click', clearFields);
     getCalculations();
 }
 
 let operator = '';
+
+let mathAnswer = '';
 
 function createAddition(){
     operator='+';
@@ -39,6 +42,11 @@ function createDivision(){
     
 }
 
+function clearFields(){
+    $('#first-number').val('');
+    $('#second-number').val('');
+    $('#history-results').empty();
+}
 
 function handleClick(){
     //collect inputs...
@@ -46,7 +54,7 @@ function handleClick(){
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
         operation: operator,
-        result: ''
+        result: mathAnswer
     }
     console.log(calculator);
     //ajax request to server
@@ -83,9 +91,7 @@ function render(calculationsList){
     $('#history-results').empty();
     //append it to the DOM
     for (let calculation of calculationsList) {
-        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber} '=' ${calculation.result}</li>`);
+        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber} = ${calculation.result}</li>`);
     }
-    for (let i = 0; i < calculationsList.length; i++) {
-        $('#current-result').append(calculationsList[calculationsList.length-1]);
-    }
+    $('#current-result').empty();
 }
