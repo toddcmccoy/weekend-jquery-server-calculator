@@ -56,7 +56,7 @@ function handleClick(){
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
         operation: operator,
-        // result: 0
+        result: 0
     }
     console.log(calculator);
     //ajax request to server
