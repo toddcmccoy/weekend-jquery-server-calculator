@@ -13,9 +13,10 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //getting the calculations list
-app.get('/calculations', inMyPocket(req, res) {
+app.get('/calculations', function(req, res) {
     console.log('In Calculations');
     res.send(calculationsList);
+    res.send(inMyPocket());
 });
 //putting our new item into the calculation list
 app.post('/calculations', function(req, res) {

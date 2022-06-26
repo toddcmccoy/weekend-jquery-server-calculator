@@ -3,9 +3,15 @@ $(document).ready(onReady);
 
 function onReady(){
     //get data
+    $('#addition-button').on('click', createAddition);
     $('#submit-button').on('click', handleClick);
     $('#submit-button').on('click', getCalculations);
     getCalculations();
+}
+
+function createAddition(){
+    let operator = '+';
+    return operator
 }
 
 function handleClick(){
@@ -13,7 +19,7 @@ function handleClick(){
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
-        operator: $('#addition-button').val()
+        operator: operator
     }
     console.log(calculator);
     //ajax request to server
