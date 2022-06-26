@@ -6,15 +6,6 @@ const calculationsList = require('./modules/calculations.js');
 const app = express();
 const PORT = 5000;
 
-
-// function inMyPocket(calculator){
-//     if (calculator.operator === '+') {
-//         let result = parseInt(calculator.firstNumber) + parseInt(calculator.secondNumber);
-//         console.log('Result is:', result);
-//     } else {
-//         return false
-//     }
-// }
 //Serve Static Files
 app.use(express.static('server/public'));
 
@@ -41,6 +32,7 @@ app.post('/calculations', function(req, res) {
     } else if (kapow === '/'){
         answer = num1 / num2;
     }
+    req.body.result = answer;
     console.log('The result is:', answer);
     console.log('POST /calculations', req.body);
     // save our new item

@@ -1,3 +1,5 @@
+// const calculationsList = require("./modules/calculations");
+
 $(document).ready(onReady);
 
 
@@ -14,8 +16,6 @@ function onReady(){
 }
 
 let operator = '';
-
-let mathAnswer = '';
 
 function createAddition(){
     operator='+';
@@ -46,15 +46,17 @@ function clearFields(){
     $('#first-number').val('');
     $('#second-number').val('');
     $('#history-results').empty();
+    $('#current-result').val('');
+    // calculationsList = [];
 }
 
 function handleClick(){
+    
     //collect inputs...
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
         operation: operator,
-        result: mathAnswer
     }
     console.log(calculator);
     //ajax request to server
@@ -91,7 +93,8 @@ function render(calculationsList){
     $('#history-results').empty();
     //append it to the DOM
     for (let calculation of calculationsList) {
-        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber} = ${calculation.result}</li>`);
+    $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber} = ${calculation.result}</li>`);
     }
     $('#current-result').empty();
+    $('#current-result').append(calculationsList[calculationsList.length-1].result);
 }
