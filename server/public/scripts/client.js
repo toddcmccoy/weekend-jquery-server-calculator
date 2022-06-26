@@ -83,6 +83,9 @@ function render(calculationsList){
     $('#history-results').empty();
     //append it to the DOM
     for (let calculation of calculationsList) {
-        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber}</li>`);
+        $('#history-results').append(`<li>${calculation.firstNumber} ${calculation.operation} ${calculation.secondNumber} '=' ${calculation.result}</li>`);
+    }
+    for (let i = 0; i < calculationsList.length; i++) {
+        $('#current-result').append(calculationsList[calculationsList.length-1]);
     }
 }

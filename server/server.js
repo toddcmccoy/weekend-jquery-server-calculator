@@ -41,7 +41,7 @@ app.post('/calculations', function(req, res) {
     } else if (kapow === '/'){
         answer = num1 / num2;
     }
-    console.log('The result of addition is:', sum);
+    console.log('The result is:', answer);
     console.log('POST /calculations', req.body);
     // save our new item
     calculationsList.push(req.body);
