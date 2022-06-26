@@ -13,11 +13,11 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //getting the calculations list
-app.get('/calculations', function(req, res) {
+app.get('/calculations', inMyPocket(req, res) {
     console.log('In Calculations');
     res.send(calculationsList);
 });
-//putting our new item into the inventory
+//putting our new item into the calculation list
 app.post('/calculations', function(req, res) {
     console.log('POST /calculations', req.body);
     // save our new item
@@ -28,3 +28,12 @@ app.post('/calculations', function(req, res) {
 app.listen(PORT, function() {
     console.log('SERVER RUNNING ON PORT', PORT)
 });
+
+function inMyPocket(calculator){
+    if (calculator.operator === '+') {
+        let result = parseInt(calculator.firstNumber) + parseInt(calculator.secondNumber);
+        console.log('Result is:', result);
+    } else {
+        return false
+    }
+}
