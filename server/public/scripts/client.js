@@ -46,8 +46,7 @@ function clearFields(){
     $('#first-number').val('');
     $('#second-number').val('');
     $('#history-results').empty();
-    $('#current-result').val('');
-    // calculationsList = [];
+    $('#current-result').empty();
 }
 
 function handleClick(){
@@ -57,6 +56,7 @@ function handleClick(){
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
         operation: operator,
+        result: 0
     }
     console.log(calculator);
     //ajax request to server
