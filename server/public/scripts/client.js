@@ -3,8 +3,9 @@ $(document).ready(onReady);
 
 function onReady(){
     //get data
-    getCalculations();
     $('#submit-button').on('click', handleClick);
+    $('#submit-button').on('click', getCalculations);
+    getCalculations();
 }
 
 function handleClick(){
@@ -12,7 +13,7 @@ function handleClick(){
     const calculator = {
         firstNumber: $('#first-number').val(),
         secondNumber: $('#second-number').val(),
-        // operator: $('#operator').val(),
+        operator: $('#addition-button').val(), $('subtraction-button').val(), $('multiplication-button').val(), $('division-button').val(),
     }
     console.log(calculator);
     //ajax request to server
