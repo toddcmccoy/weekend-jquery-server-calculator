@@ -1,4 +1,3 @@
-// const calculationsList = require("./modules/calculations");
 
 $(document).ready(onReady);
 
@@ -98,3 +97,4 @@ function render(calculationsList){
     $('#current-result').empty();
     $('#current-result').append(calculationsList[calculationsList.length-1].result);
 }
+
