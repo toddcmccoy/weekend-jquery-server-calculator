@@ -11,7 +11,7 @@ function onReady(){
     $('#submit-button').on('click', handleClick);
     $('#submit-button').on('click', getCalculations);
     $('#clear-button').on('click', clearFields);
-    getCalculations();
+    // getCalculations();
 }
 
 let operator = '';
